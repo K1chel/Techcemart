@@ -1,7 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { JSONContent } from "@tiptap/react";
+import { toast } from "sonner";
+import Image from "next/image";
+import { XIcon } from "lucide-react";
+import { useFormState } from "react-dom";
 
 import { MaxWidthWrapper } from "@/components/max-width-wrapper";
 import {
@@ -18,15 +22,25 @@ import { Editor } from "@/components/editor";
 import { SelectedCategory } from "./select-category";
 import { UploadDropzone } from "@/lib/uploadthing";
 import { SubmitButton } from "@/components/submit-button";
-import { toast } from "sonner";
-import Image from "next/image";
-import { XIcon } from "lucide-react";
+import { createProduct } from "@/actions/create-product";
+import { type CreateProductState } from "@/actions/create-product/types";
+import { ErrorMessage } from "@/components/error-message";
 
 export const CreateProductForm = () => {
+  const initialState: CreateProductState = { message: "", status: "undefined" };
+  const [state, formAction] = useFormState(createProduct, initialState);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [json, setJson] = useState<JSONContent | null>(null);
   const [images, setImages] = useState<string[] | null>(null);
   const [productFile, setProductFile] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (state.status === "success") {
+      toast.success("Product created successfully");
+    } else if (state.status === "error") {
+      toast.error(state.message);
+    }
+  }, [state.status, state.message]);
 
   return (
     <div className="mb-12">
@@ -39,7 +53,7 @@ export const CreateProductForm = () => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <form className="space-y-5">
+            <form className="space-y-5" action={formAction}>
               <div className="flex flex-col gap-y-2">
                 <Label>Product Name</Label>
                 <Input
@@ -48,6 +62,7 @@ export const CreateProductForm = () => {
                   name="name"
                   required
                 />
+                <ErrorMessage error={state?.errors?.["name"]?.[0]} />
               </div>
               <div className="flex flex-col gap-y-2">
                 <input
@@ -61,6 +76,7 @@ export const CreateProductForm = () => {
                   selectedCategory={selectedCategory}
                   setSelectedCategory={setSelectedCategory}
                 />
+                <ErrorMessage error={state?.errors?.["category"]?.[0]} />
               </div>
               <div className="flex flex-col gap-y-2">
                 <Label>Product Price</Label>
@@ -70,6 +86,7 @@ export const CreateProductForm = () => {
                   name="price"
                   required
                 />
+                <ErrorMessage error={state?.errors?.["price"]?.[0]} />
               </div>
               <div className="flex flex-col gap-y-2">
                 <Label>Small Summary</Label>
@@ -80,6 +97,7 @@ export const CreateProductForm = () => {
                   maxLength={250}
                   required
                 />
+                <ErrorMessage error={state?.errors?.["summary"]?.[0]} />
               </div>
               <div className="flex flex-col gap-y-2 w-full">
                 <input
@@ -90,6 +108,7 @@ export const CreateProductForm = () => {
                 />
                 <Label>Description</Label>
                 <Editor json={json} setJson={setJson} />
+                <ErrorMessage error={state?.errors?.["description"]?.[0]} />
               </div>
               <div className="flex flex-col gap-y-2 w-full">
                 <input
@@ -150,7 +169,7 @@ export const CreateProductForm = () => {
                 <input
                   hidden
                   name="productFile"
-                  value={JSON.stringify(images)}
+                  value={JSON.stringify(productFile)}
                   readOnly
                 />
                 <Label>Product File</Label>
