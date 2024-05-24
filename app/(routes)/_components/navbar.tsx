@@ -2,18 +2,17 @@ import {
   LoginLink,
   RegisterLink,
 } from "@kinde-oss/kinde-auth-nextjs/components";
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import Image from "next/image";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import { currentUser } from "@/lib/current-user";
 import { MobileMenu } from "./mobile-menu";
 import { NavbarWrapper } from "./navbar-wrapper";
 import { UserMenu } from "./user-menu";
 
 export const Navbar = async () => {
-  const { getUser } = getKindeServerSession();
-  const user = await getUser();
+  const { user } = await currentUser();
 
   return (
     <NavbarWrapper className="flex h-20 items-center justify-between">

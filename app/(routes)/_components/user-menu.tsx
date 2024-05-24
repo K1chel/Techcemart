@@ -1,6 +1,6 @@
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
-import { Circle, CirclePlusIcon, LogOutIcon, SettingsIcon } from "lucide-react";
+import { CirclePlusIcon, LogOutIcon, SettingsIcon } from "lucide-react";
+import Link from "next/link";
 
 import {
   DropdownMenu,
@@ -10,11 +10,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { UserAvatar } from "@/components/user-avatar";
-import Link from "next/link";
+import { currentUser } from "@/lib/current-user";
 
 export const UserMenu = async () => {
-  const { getUser } = getKindeServerSession();
-  const user = await getUser();
+  const { user } = await currentUser();
 
   if (!user) return null;
 
@@ -22,11 +21,21 @@ export const UserMenu = async () => {
     <DropdownMenu>
       <DropdownMenuTrigger className="outline-none">
         <UserAvatar
-          src={user.picture || `https://avatar.vercel.sh/${user.given_name}`}
-          username={user.given_name || "User"}
+          src={
+            user.profileImage || `https://avatar.vercel.sh/${user.firstName}`
+          }
+          username={user.firstName || "User"}
         />
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-[200px] p-0 m-0">
+      <DropdownMenuContent align="end" className="w-[250px] p-0 m-0">
+        <DropdownMenuItem className="rounded-none flex flex-col items-start">
+          <div className="flex items-center gap-x-1 text-sm font-medium line-clamp-1">
+            <span>{user.firstName}</span>
+            <span>{user.lastName}</span>
+          </div>
+          <span className="text-xs text-muted-foreground">{user.email}</span>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator className="m-0" />
         <DropdownMenuItem className="cursor-pointer rounded-none" asChild>
           <Link href="/create-product">
             <CirclePlusIcon className="size-4 mr-3" />
