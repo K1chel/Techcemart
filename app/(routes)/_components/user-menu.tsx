@@ -1,6 +1,6 @@
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
-import { LogOutIcon, SettingsIcon } from "lucide-react";
+import { Circle, CirclePlusIcon, LogOutIcon, SettingsIcon } from "lucide-react";
 
 import {
   DropdownMenu,
@@ -10,6 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { UserAvatar } from "@/components/user-avatar";
+import Link from "next/link";
 
 export const UserMenu = async () => {
   const { getUser } = getKindeServerSession();
@@ -26,9 +27,18 @@ export const UserMenu = async () => {
         />
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-[200px] p-0 m-0">
-        <DropdownMenuItem className="cursor-pointer rounded-none">
-          <SettingsIcon className="size-4 mr-3" />
-          <span className="font-medium">Settings</span>
+        <DropdownMenuItem className="cursor-pointer rounded-none" asChild>
+          <Link href="/create-product">
+            <CirclePlusIcon className="size-4 mr-3" />
+            <span className="font-medium">Create product</span>
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator className="m-0" />
+        <DropdownMenuItem className="cursor-pointer rounded-none" asChild>
+          <Link href="/settings">
+            <SettingsIcon className="size-4 mr-3" />
+            <span className="font-medium">Settings</span>
+          </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator className="m-0" />
         <LogoutLink>

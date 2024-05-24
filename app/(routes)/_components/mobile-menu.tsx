@@ -37,13 +37,19 @@ export const MobileMenu = () => {
           <Link href="/">
             <span>Techcemart</span>
           </Link>
-          {NAV_LINKS.map((link) => (
-            <Link key={link.href} href={link.href}>
-              <Button className="w-full justify-start" variant="ghost">
-                {link.name}
-              </Button>
-            </Link>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const isActive = pathname === link.href;
+            return (
+              <Link key={link.href} href={link.href}>
+                <Button
+                  className="w-full justify-start"
+                  variant={isActive ? "secondary" : "ghost"}
+                >
+                  {link.name}
+                </Button>
+              </Link>
+            );
+          })}
         </div>
       </SheetContent>
     </Sheet>
