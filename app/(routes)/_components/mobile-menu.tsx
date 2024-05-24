@@ -11,9 +11,14 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { NAV_LINKS } from "@/constants";
 
 export const MobileMenu = () => {
-  const isMobile = useMedia("(max-width: 1024px)");
+  const [isMounted, setIsMounted] = useState<boolean>(false);
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const isMobile = useMedia("(max-width: 1024px)");
   const pathname = usePathname();
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     setIsOpen(false);
@@ -24,6 +29,8 @@ export const MobileMenu = () => {
       setIsOpen(false);
     }
   }, [isMobile]);
+
+  if (!isMounted) return null;
 
   return (
     <Sheet open={isOpen} onOpenChange={setIsOpen}>
