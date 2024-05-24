@@ -37,13 +37,13 @@ export const PRODUCT_CATEGORIES: Category[] = [
   },
   {
     id: 4,
-    name: "starter-kit",
+    name: "starterkit",
     title: "Starter Kit",
     icon: FolderKanbanIcon,
   },
   {
     id: 5,
-    name: "coding-challenge",
+    name: "codingchallenge",
     title: "Coding Challenge",
     icon: Code2Icon,
   },
