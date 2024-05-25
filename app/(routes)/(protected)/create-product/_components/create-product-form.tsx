@@ -31,8 +31,19 @@ export const CreateProductForm = () => {
   const [state, formAction] = useFormState(createProduct, initialState);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [json, setJson] = useState<JSONContent | null>(null);
+  const [price, setPrice] = useState("");
   const [images, setImages] = useState<string[] | null>(null);
   const [productFile, setProductFile] = useState<string | null>(null);
+
+  const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+
+    const regex = /^\d*\.?\d{0,2}$/;
+
+    if (value === "" || regex.test(value)) {
+      setPrice(value);
+    }
+  };
 
   useEffect(() => {
     if (state.status === "success") {
@@ -79,16 +90,22 @@ export const CreateProductForm = () => {
             </div>
             <div className="flex flex-col gap-y-2">
               <Label>Product Price</Label>
-              <Input type="number" placeholder="$39.89" name="price" required />
+              <Input
+                type="number"
+                placeholder="$39.89"
+                name="price"
+                value={price}
+                onChange={handlePriceChange}
+              />
               <ErrorMessage error={state?.errors?.["price"]?.[0]} />
             </div>
             <div className="flex flex-col gap-y-2">
               <Label>Small Summary</Label>
               <Textarea
-                placeholder="Describe your product in max 250 characters..."
+                placeholder="Describe your product in max 500 characters..."
                 name="summary"
                 className="resize-none"
-                maxLength={250}
+                maxLength={500}
                 required
               />
               <ErrorMessage error={state?.errors?.["summary"]?.[0]} />
