@@ -13,7 +13,7 @@ import { UserAvatar } from "@/components/user-avatar";
 import { currentUser } from "@/lib/current-user";
 
 export const UserMenu = async () => {
-  const { user } = await currentUser();
+  const user = await currentUser();
 
   if (!user) return null;
 

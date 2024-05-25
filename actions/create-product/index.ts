@@ -8,7 +8,7 @@ import { db } from "@/lib/prisma";
 import { redirect } from "next/navigation";
 
 export async function createProduct(prevState: any, formData: FormData) {
-  const { user } = await currentUser();
+  const user = await currentUser();
   let state: CreateProductState;
 
   if (!user) {

@@ -12,7 +12,7 @@ import { NavbarWrapper } from "./navbar-wrapper";
 import { UserMenu } from "./user-menu";
 
 export const Navbar = async () => {
-  const { user } = await currentUser();
+  const user = await currentUser();
 
   return (
     <NavbarWrapper className="flex h-20 items-center justify-between">

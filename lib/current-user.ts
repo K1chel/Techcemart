@@ -6,9 +6,7 @@ export const currentUser = async () => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  if (!user) {
-    throw new Error("User not found");
-  }
+  if (!user) return null;
 
   const currentUser = await db.user.findUnique({
     where: {
@@ -16,9 +14,7 @@ export const currentUser = async () => {
     },
   });
 
-  if (!currentUser) {
-    throw new Error("User not found");
-  }
+  if (!currentUser) return null;
 
-  return { user: currentUser };
+  return currentUser;
 };

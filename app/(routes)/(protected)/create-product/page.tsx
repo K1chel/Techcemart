@@ -10,7 +10,7 @@ const CreateProductPage = async () => {
   if (!user) return notFound();
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full py-12">
       <CreateProductForm />
     </div>
   );
