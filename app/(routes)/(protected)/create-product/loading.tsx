@@ -4,7 +4,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 const CreateProductLoading = () => {
   return (
-    <div className="w-full h-full mb-12">
+    <div className="w-full h-full py-12">
       <MaxWidthWrapper>
         <Card className="cursor-not-allowed">
           <CardHeader>
