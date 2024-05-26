@@ -33,8 +33,8 @@ export const NavbarWrapper = ({ children, className }: Props) => {
   return (
     <nav
       className={cn(
-        "fixed top-0 inset-x-0 z-30 backdrop-blur-md",
-        isScrolled && "border-b"
+        "fixed top-0 inset-x-0 z-30 backdrop-blur-md transition duration-500 bg-zinc-100/60",
+        isScrolled && "border-b bg-zinc-100/60"
       )}
     >
       <MaxWidthWrapper
