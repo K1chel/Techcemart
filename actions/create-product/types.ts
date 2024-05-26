@@ -14,7 +14,7 @@ export const productSchema = z.object({
   summary: z
     .string()
     .min(10, { message: "Summary must be at least 10 characters" })
-    .max(250, { message: "Summary must be at most 250 characters" }),
+    .max(500, { message: "Summary must be at most 500 characters" }),
   description: z.string().min(30, { message: "Describe more your product" }),
   images: z.array(z.string({ message: "This field require at least 1 image" })),
   productFile: z.string({ message: "This field require a file" }),

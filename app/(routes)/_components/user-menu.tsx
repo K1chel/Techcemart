@@ -1,5 +1,10 @@
 import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
-import { CirclePlusIcon, LogOutIcon, SettingsIcon } from "lucide-react";
+import {
+  CirclePlusIcon,
+  CrownIcon,
+  LogOutIcon,
+  SettingsIcon,
+} from "lucide-react";
 import Link from "next/link";
 
 import {
@@ -40,6 +45,13 @@ export const UserMenu = async () => {
           <Link href="/create-product">
             <CirclePlusIcon className="size-4 mr-3" />
             <span className="font-medium">Create product</span>
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator className="m-0" />
+        <DropdownMenuItem className="cursor-pointer rounded-none" asChild>
+          <Link href={`/my-products/${user.id}`}>
+            <CrownIcon className="size-4 mr-3" />
+            <span className="font-medium">My Products</span>
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator className="m-0" />
