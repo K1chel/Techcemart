@@ -54,7 +54,7 @@ export const ProductCard = ({ product }: Props) => {
           {name}
         </span>
         <button className="px-1.5 py-0.5 rounded-lg border-2 bg-primary/50 border-primary text-slate-100 text-sm md:text-base">
-          ${price}
+          ${price.toFixed(2)}
         </button>
       </div>
       <hr />

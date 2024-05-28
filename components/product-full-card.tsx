@@ -3,26 +3,18 @@
 import { Product } from "@prisma/client";
 import Image from "next/image";
 
-import { SubmitButton } from "./submit-button";
 import { formatDate } from "@/lib/utils";
 import { JSONContent } from "@tiptap/react";
 import { ProductDescription } from "./product-description";
+import { SubmitButton } from "./submit-button";
 
 type Props = {
   product: Product;
 };
 
 export const ProductFullCard = ({ product }: Props) => {
-  const {
-    category,
-    createdAt,
-    description,
-    images,
-    name,
-    price,
-    sellCount,
-    summary,
-  } = product;
+  const { category, createdAt, description, images, name, price, summary } =
+    product;
 
   return (
     <div className="flex flex-col gap-y-3 w-full">
