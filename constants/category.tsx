@@ -9,7 +9,7 @@ import {
   FolderKanbanIcon,
 } from "lucide-react";
 
-interface Category {
+export interface Category {
   name: string;
   title: string;
   icon: LucideIcon;
@@ -53,4 +53,4 @@ export const PRODUCT_CATEGORIES: Category[] = [
     title: "Other",
     icon: EllipsisIcon,
   },
-];
+] as const;
