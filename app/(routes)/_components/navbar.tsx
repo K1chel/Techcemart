@@ -10,30 +10,34 @@ import { currentUser } from "@/lib/current-user";
 import { MobileMenu } from "./mobile-menu";
 import { NavbarWrapper } from "./navbar-wrapper";
 import { UserMenu } from "./user-menu";
+import { NavItems } from "@/components/nav-items";
 
 export const Navbar = async () => {
   const user = await currentUser();
 
   return (
     <NavbarWrapper className="flex h-20 items-center justify-between">
-      <Link href="/" className="flex items-center hover:opacity-80 transition">
-        <Image
-          src="/logo/logo-dark.jpg"
-          alt="Techcemart"
-          width={40}
-          height={40}
-          className="rounded-md block lg:hidden shadow-xl"
-        />
-        <span className="text-xl font-semibold hidden lg:block">
-          Techcemart
-        </span>
-      </Link>
-      <div className="flex items-center gap-x-20">
-        <div className="hidden lg:flex items-center gap-x-3">
-          <p>item-1</p>
-          <p>item-2</p>
-          <p>item-3</p>
+      <div className="lg:flex lg:items-center lg:gap-x-20">
+        <Link
+          href="/"
+          className="flex items-center hover:opacity-80 transition"
+        >
+          <Image
+            src="/logo/logo-dark.jpg"
+            alt="Techcemart"
+            width={40}
+            height={40}
+            className="rounded-md block lg:hidden shadow-xl"
+          />
+          <span className="text-xl font-semibold hidden lg:block">
+            Techcemart
+          </span>
+        </Link>
+        <div className="hidden lg:block">
+          <NavItems />
         </div>
+      </div>
+      <div>
         {user ? (
           <div className="flex items-center gap-x-2">
             <UserMenu />

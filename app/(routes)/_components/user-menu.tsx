@@ -26,9 +26,7 @@ export const UserMenu = async () => {
     <DropdownMenu>
       <DropdownMenuTrigger className="outline-none">
         <UserAvatar
-          src={
-            user.profileImage || `https://avatar.vercel.sh/${user.firstName}`
-          }
+          src={user.profileImage}
           username={user.firstName || "User"}
         />
       </DropdownMenuTrigger>

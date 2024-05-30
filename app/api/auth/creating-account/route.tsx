@@ -24,8 +24,7 @@ export async function GET() {
         email: user.email as string,
         firstName: user.given_name || "First Name",
         lastName: user.family_name || "Last Name",
-        profileImage:
-          user.picture ?? `https://avatar.vercel.sh/${user.given_name}`,
+        profileImage: `https://avatar.vercel.sh/${user.given_name}`,
         connectedAccountId: "123456789",
       },
     });

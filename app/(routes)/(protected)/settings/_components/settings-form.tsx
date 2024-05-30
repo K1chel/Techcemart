@@ -2,7 +2,7 @@
 
 import { User } from "@prisma/client";
 import { useFormState, useFormStatus } from "react-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "sonner";
 
 import { updateSettings } from "@/actions/update-settings/index";
@@ -29,6 +29,10 @@ export const SettingsForm = ({ user }: Props) => {
     status: "undefined",
   };
   const [state, formAction] = useFormState(updateSettings, initialState);
+  const [initialFirstName, setInitialFirstName] = useState(user.firstName);
+  const [initialLastName, setInitialLastName] = useState(user.lastName);
+  const [firstName, setFirstName] = useState(user.firstName);
+  const [lastName, setLastName] = useState(user.lastName);
 
   useEffect(() => {
     if (state?.status === "error") {
@@ -37,6 +41,9 @@ export const SettingsForm = ({ user }: Props) => {
       toast.success(state.message);
     }
   }, [state]);
+
+  const isNameChanged =
+    firstName !== initialFirstName || lastName !== initialLastName;
 
   return (
     <form className="py-12" action={formAction}>
@@ -58,6 +65,7 @@ export const SettingsForm = ({ user }: Props) => {
                 placeholder="John"
                 required
                 defaultValue={user.firstName}
+                onChange={(e) => setFirstName(e.target.value)}
               />
               <ErrorMessage error={state?.errors?.["firstName"]?.[0]} />
             </div>
@@ -69,6 +77,7 @@ export const SettingsForm = ({ user }: Props) => {
                 placeholder="Doe"
                 required
                 defaultValue={user.lastName}
+                onChange={(e) => setLastName(e.target.value)}
               />
               <ErrorMessage error={state?.errors?.["lastName"]?.[0]} />
             </div>
@@ -84,6 +93,7 @@ export const SettingsForm = ({ user }: Props) => {
             <SubmitButton
               title="Save Changes"
               pendingTitle="Saving Changes..."
+              disabled={!isNameChanged}
             />
           </div>
         </CardContent>

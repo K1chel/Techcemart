@@ -11,8 +11,10 @@ import { cn } from "@/lib/utils";
 export const UserAvatar = ({ src, username, className, onClick }: Props) => {
   return (
     <Avatar className={cn("border", className)} onClick={onClick}>
-      <AvatarImage src={src} />
-      <AvatarFallback>{username[0].toUpperCase()}</AvatarFallback>
+      <AvatarImage src={src} alt={username} />
+      <AvatarFallback className="bg-primary text-white">
+        {username[0].toUpperCase()}
+      </AvatarFallback>
     </Avatar>
   );
 };

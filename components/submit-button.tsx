@@ -8,13 +8,23 @@ type Props = {
   title: string;
   pendingTitle: string;
   className?: string;
+  disabled?: boolean;
 };
 
-export const SubmitButton = ({ title, className, pendingTitle }: Props) => {
+export const SubmitButton = ({
+  title,
+  className,
+  pendingTitle,
+  disabled,
+}: Props) => {
   const { pending } = useFormStatus();
 
   return (
-    <Button type="submit" disabled={pending} className={cn("", className)}>
+    <Button
+      type="submit"
+      disabled={pending || disabled}
+      className={cn("", className)}
+    >
       {pending ? (
         <>
           <Loader2Icon className="size-5 text-white animate-spin mr-1.5" />

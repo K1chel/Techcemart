@@ -8,7 +8,7 @@ import { useMedia } from "react-use";
 
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { NAV_LINKS } from "@/constants";
+import { MOBILE_NAV_LINKS } from "@/constants";
 
 export const MobileMenu = () => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
@@ -44,7 +44,7 @@ export const MobileMenu = () => {
           <Link href="/">
             <span>Techcemart</span>
           </Link>
-          {NAV_LINKS.map((link) => {
+          {MOBILE_NAV_LINKS.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link key={link.href} href={link.href}>
