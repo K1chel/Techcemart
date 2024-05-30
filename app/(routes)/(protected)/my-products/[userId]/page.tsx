@@ -1,7 +1,9 @@
 import { MaxWidthWrapper } from "@/components/max-width-wrapper";
 import { ProductCard } from "@/components/product-card";
+import { Button } from "@/components/ui/button";
 import { currentUser } from "@/lib/current-user";
 import { db } from "@/lib/prisma";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 
 type Props = {
@@ -34,10 +36,14 @@ const MyProductsPage = async ({ params }: Props) => {
 
   if (!products.length)
     return (
-      <MaxWidthWrapper className="flex flex-col items-center justify-center h-full">
-        <h1>No products found</h1>
-        {/* TODO: REDIRECT TO CREATE PRODUCT */}
-        <p>CREATE ONE</p>
+      <MaxWidthWrapper className="flex flex-col items-center justify-center h-full max-w-xl mx-auto gap-y-1">
+        <h3 className="text-lg lg:text-xl font-semibold text-center text-muted-foreground">
+          You have not created any products yet. Click the button below to
+          create your first product.
+        </h3>
+        <Button asChild size="sm" variant="link">
+          <Link href="/create-product">Create a product</Link>
+        </Button>
       </MaxWidthWrapper>
     );
 
