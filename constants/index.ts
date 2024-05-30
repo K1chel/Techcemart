@@ -27,7 +27,7 @@ export const NAV_LINKS = [
   },
   {
     name: "Categories",
-    href: "/products",
+    href: "/products/all",
     component: ProductCategories,
   },
 ];

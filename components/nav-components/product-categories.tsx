@@ -23,7 +23,7 @@ export const ProductCategories = () => {
           </p>
         </div>
         <Link
-          href="/products"
+          href="/products/all"
           className="flex items-center gap-1 text-xs text-indigo-300 hover:underline group"
         >
           See all products

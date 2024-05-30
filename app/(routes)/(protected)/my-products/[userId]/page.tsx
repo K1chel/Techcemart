@@ -1,5 +1,6 @@
 import { MaxWidthWrapper } from "@/components/max-width-wrapper";
 import { ProductCard } from "@/components/product-card";
+import { ProductsCardWrapper } from "@/components/product-cards-wrapper";
 import { Button } from "@/components/ui/button";
 import { currentUser } from "@/lib/current-user";
 import { db } from "@/lib/prisma";
@@ -58,11 +59,11 @@ const MyProductsPage = async ({ params }: Props) => {
           </p>
         </div>
         <hr />
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-10 gap-y-8 mt-5">
+        <ProductsCardWrapper>
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
-        </div>
+        </ProductsCardWrapper>
       </MaxWidthWrapper>
     </div>
   );
