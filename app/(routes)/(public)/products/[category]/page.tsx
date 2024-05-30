@@ -5,6 +5,7 @@ import { ProductCategorySelector } from "@/components/product-category-selector"
 import { db } from "@/lib/prisma";
 import { ProductCard } from "@/components/product-card";
 import { ProductsCardWrapper } from "@/components/product-cards-wrapper";
+import ProductsCategoryLoader from "./loading";
 
 type Props = {
   params: {
@@ -24,6 +25,8 @@ const ProductsCategoryPage = async ({ params: { category } }: Props) => {
       },
     });
   }
+
+  if (!true) return <ProductsCategoryLoader />;
 
   return (
     <div className="w-full h-full py-12">
