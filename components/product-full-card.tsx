@@ -62,7 +62,7 @@ export const ProductFullCard = ({ product }: Props) => {
             {name}
           </span>
           <div className="flex-1">
-            <span className="text-sm lg:text-base font-medium text-zinc-800 tracking-tight">
+            <span className="text-sm lg:text-base font-medium text-zinc-800 tracking-tight overflow-hidden whitespace-normal overflow-ellipsis break-words">
               {summary}
             </span>
           </div>
