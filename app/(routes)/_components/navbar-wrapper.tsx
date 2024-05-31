@@ -21,7 +21,7 @@ export const NavbarWrapper = ({ children, className }: Props) => {
       } else {
         setIsScrolled(false);
       }
-      lastScrollTop.current = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+      lastScrollTop.current = st <= 0 ? 0 : st;
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -33,8 +33,8 @@ export const NavbarWrapper = ({ children, className }: Props) => {
   return (
     <nav
       className={cn(
-        "fixed top-0 inset-x-0 z-30 backdrop-blur-md transition duration-500 bg-zinc-100/60",
-        isScrolled && "border-b bg-zinc-100/60"
+        "fixed top-0 inset-x-0 z-50 backdrop-blur-md transition opacity-100 duration-500 bg-slate-50/90",
+        isScrolled && "border-b bg-slate-50/75"
       )}
     >
       <MaxWidthWrapper
