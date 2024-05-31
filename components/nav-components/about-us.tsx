@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 const ABOUT_US_LINKS = [
   {
     href: "/#features",
@@ -40,15 +42,16 @@ export const AboutUs = () => {
       </div>
       <div className="col-span-12 grid grid-cols-2 grid-rows-2 gap-3 bg-white p-6 lg:col-span-8">
         {ABOUT_US_LINKS.map((link) => (
-          <div
+          <Link
             key={link.href}
+            href={link.href}
             className="px-4 py-3 rounded-lg border bg-white hover:bg-secondary transition flex flex-col gap-y-1 cursor-pointer"
           >
             <h6 className="text-lg font-semibold">{link.name}</h6>
             <p className="text-xs font-medium text-muted-foreground">
               {link.description}
             </p>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
