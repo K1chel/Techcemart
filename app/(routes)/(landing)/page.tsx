@@ -4,7 +4,7 @@ import { Categories } from "./_components/categories";
 
 export default function Home() {
   return (
-    <div className="w-full h-full flex flex-col gap-y-5 overflow-hidden">
+    <div className="w-full h-full flex flex-col lg:gap-y-14 gap-y-8 overflow-hidden">
       <div id="features" className="relative lg:py-24 py-10 bg-slate-100">
         <div className="absolute top-0 z-30 inset-x-0 h-[60px] bg-gradient-to-b from-white to-transparent" />
         <MaxWidthWrapper>

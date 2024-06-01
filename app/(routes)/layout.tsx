@@ -1,3 +1,4 @@
+import { Footer } from "./(landing)/_components/footer";
 import { Navbar } from "./_components/navbar";
 
 type Props = {
@@ -9,7 +10,7 @@ const LandingLayout = ({ children }: Props) => {
     <div className="flex flex-col h-full">
       <Navbar />
       <main className="flex flex-1 mt-20">{children}</main>
-      <footer>Footer</footer>
+      <Footer />
     </div>
   );
 };
