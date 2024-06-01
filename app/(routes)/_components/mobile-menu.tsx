@@ -9,6 +9,8 @@ import { useMedia } from "react-use";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { MOBILE_NAV_LINKS } from "@/constants";
+import { MobileCategoriesAccordion } from "./mobile-categories-accordion";
+import Image from "next/image";
 
 export const MobileMenu = () => {
   const [isMounted, setIsMounted] = useState<boolean>(false);
@@ -40,10 +42,18 @@ export const MobileMenu = () => {
         </Button>
       </SheetTrigger>
       <SheetContent side="top" className="rounded-b-xl">
-        <div className="mt-7 flex flex-col gap-y-3">
-          <Link href="/">
-            <span>Techcemart</span>
+        <div className="mt-7 flex flex-col gap-y-2.5">
+          <Link href="/" className="px-3 flex items-center gap-x-1.5">
+            <Image
+              src="/logo/logo-dark.jpg"
+              alt="Logo"
+              width={50}
+              height={50}
+              className="rounded-lg"
+            />
+            <span className="text-lg font-semibold">Techcemart</span>
           </Link>
+          <hr className="my-2" />
           {MOBILE_NAV_LINKS.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -57,6 +67,7 @@ export const MobileMenu = () => {
               </Link>
             );
           })}
+          <MobileCategoriesAccordion />
         </div>
       </SheetContent>
     </Sheet>
