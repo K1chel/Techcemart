@@ -149,7 +149,7 @@ export const Footer = () => {
               </span>
             </div>
             <p className="lg:text-lg text-base text-muted-foreground text-center">
-              New way to learn, sell all modercn tech stuff online, build with
+              New way to learn, sell all modern tech stuff online, build with
               Love ❤️
             </p>
             <p className="text-sm text-muted-foreground/75">
