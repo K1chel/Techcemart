@@ -21,7 +21,7 @@ export const ProductCategorySelector = ({ category }: Props) => {
       : PRODUCT_CATEGORIES.find((c) => c.name === category)?.title;
 
   return (
-    <div className="w-full flex items-center gap-x-3 justify-center">
+    <div className="w-full flex items-center gap-x-3 justify-center overflow-x-auto">
       <button
         onClick={() => onRedirect("all")}
         className={cn(
@@ -35,7 +35,7 @@ export const ProductCategorySelector = ({ category }: Props) => {
         <button
           key={c.id}
           className={cn(
-            "px-2.5 py-1.5 bg-slate-200/50 hover:bg-slate-300/75 rounded-lg text-sm font-semibold transition-all",
+            "px-2.5 py-1.5 bg-slate-200/50 hover:bg-slate-300/75 rounded-lg text-sm font-semibold transition-all shrink-0",
             selectedCategory === c.title &&
               "bg-slate-300/75 hover:bg-slate-300/75"
           )}
