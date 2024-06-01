@@ -33,7 +33,7 @@ export const NavbarWrapper = ({ children, className }: Props) => {
   return (
     <nav
       className={cn(
-        "fixed top-0 inset-x-0 z-50 backdrop-blur-md transition opacity-100 duration-500 bg-slate-50/90",
+        "fixed top-0 inset-x-0 z-50 backdrop-blur-md transition opacity-100 duration-500 bg-white/90",
         isScrolled && "border-b bg-slate-50/75"
       )}
     >

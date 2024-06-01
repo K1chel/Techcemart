@@ -6,7 +6,7 @@ html,
 body,
 :root {
   height: 100%;
-  @apply antialiased  bg-slate-50 text-slate-900;
+  @apply antialiased  bg-slate-100 text-slate-900;
 }
 
 @layer base {
@@ -65,16 +65,30 @@ body,
   }
 }
 
+.card_category_gradient_1 {
+  @apply bg-gradient-to-r from-pink-300/75 to-pink-200/75;
+}
+.card_category_gradient_2 {
+  @apply bg-gradient-to-r from-purple-300/75 to-purple-200/75;
+}
+.card_category_gradient_3 {
+  @apply bg-gradient-to-r from-purple-400/75 to-purple-300/75;
+}
+.card_category_gradient_4 {
+  @apply bg-gradient-to-r from-blue-300/75 to-blue-200/75;
+}
+.card_category_gradient_5 {
+  @apply bg-gradient-to-r from-blue-400/75 to-blue-300/75;
+}
+.card_category_gradient_6 {
+  @apply bg-gradient-to-r from-green-300/75 to-green-200/75;
+}
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-/* Firefox */
-input[type="number"] {
-  -moz-appearance: textfield;
 }
 
 .prose.full-width {

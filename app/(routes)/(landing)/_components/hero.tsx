@@ -94,12 +94,12 @@ export const Hero = () => {
         <HeroCard
           cardClassName="lg:-ml-10 border-blue-600"
           imageSrc="/landing/hero/hero-image-card-3.jpg"
-          shadowColor="linear-gradient(158deg, #651FFF 9.95%, #00BCD4 92.81%)"
+          shadowColor="linear-gradient(158deg, #0000FF 13.95%, #FFC0CB 76.81%)"
         />
         <HeroCard
           cardClassName="lg:-mt-3 lg:-ml-5"
           imageSrc="/landing/hero/hero-image-card-4.jpg"
-          shadowColor="linear-gradient(158deg, #651FFF 9.95%, #00BCD4 92.81%)"
+          shadowColor="linear-gradient(158deg, #800080 8.95%, #FF0000 92.81%)"
         />
       </div>
     </div>
@@ -121,7 +121,8 @@ const HeroCard = ({
 }: HeroCardProps) => (
   <span
     className={cn(
-      "lg:w-[236px] lg:h-[317px] w-[185px] h-[278px] shrink-0 rounded-lg border-primary relative",
+      // TODO: change the width and height of the card
+      "lg:w-[236px] lg:h-[317px] w-[205px] h-[278px] shrink-0 rounded-lg border-primary relative",
       cardClassName
     )}
   >
@@ -136,7 +137,7 @@ const HeroCard = ({
     />
     <div
       className={cn(
-        "absolute z-10 lg:w-[317px] lg:h-[304px] w-[240px] h-[250px] rotate-[30deg] shrink-0"
+        "absolute z-10 lg:w-[377px] lg:h-[304px] w-[240px] h-[250px] rotate-[30deg] shrink-0 bg-zinc-200 border"
       )}
       style={{
         borderRadius: "414px",
