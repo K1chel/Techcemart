@@ -2,6 +2,7 @@ import { MaxWidthWrapper } from "@/components/max-width-wrapper";
 import { Hero } from "./_components/hero";
 import { Categories } from "./_components/categories";
 import { MostRecent } from "./_components/most-recent";
+import { SellSteps } from "./_components/sell-steps";
 
 export default function Home() {
   return (
@@ -36,11 +37,11 @@ export default function Home() {
         </MaxWidthWrapper>
       </div>
       <div
-        id="most-recent"
-        className="py-14 lg:rounded-t-[60px] rounded-t-[35px] w-full bg-white lg:-mt-28 -mt-20"
+        id="sell-steps"
+        className="py-14 lg:rounded-t-[60px] rounded-t-[35px] w-full bg-slate-100 lg:-mt-28 -mt-20"
       >
-        <MaxWidthWrapper className="h-screen">
-          <p>children</p>
+        <MaxWidthWrapper>
+          <SellSteps />
         </MaxWidthWrapper>
       </div>
     </div>
