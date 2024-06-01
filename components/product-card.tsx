@@ -19,7 +19,7 @@ export const ProductCard = ({ product }: Props) => {
     product;
 
   return (
-    <div className="w-full h-full flex flex-col gap-y-3">
+    <div className="w-full h-full flex flex-col gap-y-3 bg-slate-100">
       {images.length > 1 ? (
         <Carousel>
           <CarouselContent>
