@@ -3,6 +3,7 @@ import { Hero } from "./_components/hero";
 import { Categories } from "./_components/categories";
 import { MostRecent } from "./_components/most-recent";
 import { SellSteps } from "./_components/sell-steps";
+import { Testimonials } from "./_components/testimonials";
 
 export default function Home() {
   return (
@@ -42,6 +43,14 @@ export default function Home() {
       >
         <MaxWidthWrapper>
           <SellSteps />
+        </MaxWidthWrapper>
+      </div>
+      <div
+        id="testimonials"
+        className="py-14 lg:rounded-t-[60px] rounded-t-[35px] w-full bg-slate-100 lg:-mt-28 -mt-20"
+      >
+        <MaxWidthWrapper>
+          <Testimonials />
         </MaxWidthWrapper>
       </div>
     </div>
