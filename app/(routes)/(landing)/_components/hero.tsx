@@ -131,7 +131,7 @@ const HeroCard = ({
       alt="hero image card"
       fill
       className={cn(
-        "rounded-lg object-cover w-full h-full lg:rotate-[14deg] rotate-[7deg] z-30",
+        "rounded-lg object-cover w-full h-full lg:rotate-[14deg] rotate-[7deg] z-30 bg-zinc-200 shadow-lg",
         imageClassName
       )}
     />
