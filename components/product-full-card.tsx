@@ -2,6 +2,7 @@
 
 import { Product } from "@prisma/client";
 import Image from "next/image";
+import { JSONContent } from "@tiptap/react";
 
 import {
   Carousel,
@@ -11,16 +12,16 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { categoryToLocalString, formatDate } from "@/lib/utils";
-import { JSONContent } from "@tiptap/react";
 import { ProductDescription } from "./product-description";
 import { SubmitButton } from "./submit-button";
+import { buyProduct } from "@/actions/buy-product";
 
 type Props = {
   product: Product;
 };
 
 export const ProductFullCard = ({ product }: Props) => {
-  const { category, createdAt, description, images, name, price, summary } =
+  const { category, createdAt, description, images, name, price, summary, id } =
     product;
 
   return (
@@ -79,11 +80,14 @@ export const ProductFullCard = ({ product }: Props) => {
               <span>Created:</span>
               <span>{formatDate(createdAt)}</span>
             </div>
-            <SubmitButton
-              title="Buy Now"
-              pendingTitle="Redirecting to payment page"
-              className="mt-2"
-            />
+            <form action={buyProduct}>
+              <input hidden name="id" value={id} />
+              <SubmitButton
+                title="Buy Now"
+                pendingTitle="Redirecting to payment page"
+                className="mt-2 w-full"
+              />
+            </form>
           </div>
         </div>
       </div>
