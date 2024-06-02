@@ -1,11 +1,18 @@
 "use server";
 
 import { redirect } from "next/navigation";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 
 import { db } from "@/lib/prisma";
 import { stripe } from "@/lib/stripe";
 
 export async function buyProduct(formData: FormData) {
+  const { isAuthenticated } = getKindeServerSession();
+
+  if (!(await isAuthenticated())) {
+    return redirect("/api/auth/login");
+  }
+
   const id = formData.get("id") as string;
 
   if (!id) {
