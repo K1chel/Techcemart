@@ -17,8 +17,8 @@ const PaymentSuccess = () => {
         <h2 className="text-3xl font-semibold">Payment Successful!</h2>
         <p className="text-base font-medium text-center text-muted-foreground">
           Thank you for your purchase. Your transaction has been completed, and
-          a receipt for your purchase has been emailed to you. You may log into
-          your account to view details of this transaction.
+          a product was sent to your email. You may log into your account to
+          view details of this transaction.
         </p>
       </div>
       <Link href={redirectURL} className="w-full px-3">

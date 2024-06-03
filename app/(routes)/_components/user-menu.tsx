@@ -4,6 +4,7 @@ import {
   CrownIcon,
   LogOutIcon,
   SettingsIcon,
+  TicketCheckIcon,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -54,12 +55,20 @@ export const UserMenu = async () => {
         </DropdownMenuItem>
         <DropdownMenuSeparator className="m-0" />
         <DropdownMenuItem className="cursor-pointer rounded-none" asChild>
+          <Link href="/my-purchases">
+            <TicketCheckIcon className="size-4 mr-3" />
+            <span className="font-medium">My Purchases</span>
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator className="m-0" />
+        <DropdownMenuItem className="cursor-pointer rounded-none" asChild>
           <Link href="/settings">
             <SettingsIcon className="size-4 mr-3" />
             <span className="font-medium">Settings</span>
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator className="m-0" />
+
         <LogoutLink>
           <DropdownMenuItem className="cursor-pointer rounded-none">
             <LogOutIcon className="size-4 mr-3 text-red-500" />

@@ -1,9 +1,10 @@
 "use client";
 
 import { Product } from "@prisma/client";
-import Image from "next/image";
 import { JSONContent } from "@tiptap/react";
+import Image from "next/image";
 
+import { buyProduct } from "@/actions/buy-product";
 import {
   Carousel,
   CarouselContent,
@@ -14,7 +15,6 @@ import {
 import { categoryToLocalString, formatDate } from "@/lib/utils";
 import { ProductDescription } from "./product-description";
 import { SubmitButton } from "./submit-button";
-import { buyProduct } from "@/actions/buy-product";
 
 type Props = {
   product: Product;
