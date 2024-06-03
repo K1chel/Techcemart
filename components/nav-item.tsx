@@ -26,7 +26,7 @@ export const NavItem = ({ children, href, Content }: Props) => {
       onMouseLeave={() => setIsOpen(false)}
       className="relative w-fit h-fit"
     >
-      <Link href={href} className="relative font-medium">
+      <div className="relative font-medium cursor-pointer">
         {children}
         <span
           style={{
@@ -34,7 +34,7 @@ export const NavItem = ({ children, href, Content }: Props) => {
           }}
           className="absolute -bottom-2 -left-2 -right-2 h-1 origin-left scale-x-0 rounded-full bg-primary/75 transition-transform duration-300 ease-out"
         />
-      </Link>
+      </div>
       <AnimatePresence>
         {showComponent && (
           <motion.div
