@@ -1,13 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import { JSONContent } from "@tiptap/react";
-import { toast } from "sonner";
-import Image from "next/image";
 import { XIcon } from "lucide-react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import { useFormState } from "react-dom";
+import { toast } from "sonner";
 
+import { createProduct } from "@/actions/create-product";
+import { type CreateProductState } from "@/actions/create-product/types";
+import { Editor } from "@/components/editor";
+import { ErrorMessage } from "@/components/error-message";
 import { MaxWidthWrapper } from "@/components/max-width-wrapper";
+import { SubmitButton } from "@/components/submit-button";
 import {
   Card,
   CardContent,
@@ -18,13 +23,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Editor } from "@/components/editor";
-import { SelectedCategory } from "./select-category";
 import { UploadDropzone } from "@/lib/uploadthing";
-import { SubmitButton } from "@/components/submit-button";
-import { createProduct } from "@/actions/create-product";
-import { type CreateProductState } from "@/actions/create-product/types";
-import { ErrorMessage } from "@/components/error-message";
+import { SelectedCategory } from "./select-category";
 
 export const CreateProductForm = () => {
   const initialState: CreateProductState = { message: "", status: "undefined" };

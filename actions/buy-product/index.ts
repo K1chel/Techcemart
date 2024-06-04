@@ -28,6 +28,11 @@ export async function buyProduct(formData: FormData) {
       summary: true,
       price: true,
       images: true,
+      createdBy: {
+        select: {
+          connectedAccountId: true,
+        },
+      },
     },
   });
 
@@ -51,6 +56,12 @@ export async function buyProduct(formData: FormData) {
         quantity: 1,
       },
     ],
+    payment_intent_data: {
+      application_fee_amount: Math.round(data.price * 0.1 * 100),
+      transfer_data: {
+        destination: data.createdBy.connectedAccountId,
+      },
+    },
     success_url: `${process.env.NEXT_PUBLIC_APP_URL}/api/payment/success/${id}`,
     cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/payment/cancel`,
   });
