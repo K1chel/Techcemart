@@ -1,7 +1,9 @@
-import { Button } from "@/components/ui/button";
-import { currentUser } from "@/lib/current-user";
 import { CheckCircleIcon, XCircleIcon } from "lucide-react";
 import Link from "next/link";
+import { unstable_noStore as noStore } from "next/cache";
+
+import { Button } from "@/components/ui/button";
+import { currentUser } from "@/lib/current-user";
 
 type Props = {
   params: {
@@ -10,6 +12,7 @@ type Props = {
 };
 
 const ReturnIdPage = async ({ params: { returnId } }: Props) => {
+  noStore();
   const user = await currentUser();
 
   if (!user) return null;

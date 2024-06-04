@@ -1,3 +1,5 @@
+import { unstable_noStore as noStore } from "next/cache";
+
 import { MaxWidthWrapper } from "@/components/max-width-wrapper";
 import { ProductFullCard } from "@/components/product-full-card";
 import { db } from "@/lib/prisma";
@@ -9,6 +11,7 @@ type Props = {
 };
 
 const ProductIdPage = async ({ params }: Props) => {
+  noStore();
   const { productId } = params;
 
   const product = await db.product.findUnique({

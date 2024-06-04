@@ -1,12 +1,14 @@
 "use client";
 
 import { CheckCircleIcon } from "lucide-react";
+import { unstable_noStore as noStore } from "next/cache";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 
 const PaymentSuccess = () => {
+  noStore();
   const { user } = useKindeBrowserClient();
   const redirectURL = user ? `/my-purchases` : "/";
 

@@ -1,4 +1,5 @@
 import { CategoryType } from "@prisma/client";
+import { unstable_noStore as noStore } from "next/cache";
 
 import { MaxWidthWrapper } from "@/components/max-width-wrapper";
 import { ProductCategorySelector } from "@/components/product-category-selector";
@@ -14,6 +15,7 @@ type Props = {
 };
 
 const ProductsCategoryPage = async ({ params: { category } }: Props) => {
+  noStore();
   let data;
 
   if (category === "all") {

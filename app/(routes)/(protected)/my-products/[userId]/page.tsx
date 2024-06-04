@@ -1,11 +1,13 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
+import { unstable_noStore as noStore } from "next/cache";
+
 import { MaxWidthWrapper } from "@/components/max-width-wrapper";
 import { ProductCard } from "@/components/product-card";
 import { ProductsCardWrapper } from "@/components/product-cards-wrapper";
 import { Button } from "@/components/ui/button";
 import { currentUser } from "@/lib/current-user";
 import { db } from "@/lib/prisma";
-import Link from "next/link";
-import { notFound } from "next/navigation";
 
 type Props = {
   params: {
@@ -14,6 +16,7 @@ type Props = {
 };
 
 const MyProductsPage = async ({ params }: Props) => {
+  noStore();
   const user = await currentUser();
 
   const data = await db.user.findUnique({

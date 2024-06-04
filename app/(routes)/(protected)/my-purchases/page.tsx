@@ -1,13 +1,15 @@
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
 import { redirect } from "next/navigation";
+import Link from "next/link";
+import { unstable_noStore as noStore } from "next/cache";
 
 import { MaxWidthWrapper } from "@/components/max-width-wrapper";
 import { db } from "@/lib/prisma";
 import { ProductCard } from "@/components/product-card";
 import { ProductsCardWrapper } from "@/components/product-cards-wrapper";
-import Link from "next/link";
 
 const MyPurcahsesPage = async () => {
+  noStore();
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 

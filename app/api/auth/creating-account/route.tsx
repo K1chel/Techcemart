@@ -1,10 +1,12 @@
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import { unstable_noStore as noStore } from "next/cache";
 
 import { db } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 import { stripe } from "@/lib/stripe";
 
 export async function GET() {
+  noStore();
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
