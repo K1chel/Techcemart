@@ -2,6 +2,7 @@ import { LogoutLink } from "@kinde-oss/kinde-auth-nextjs/components";
 import {
   CirclePlusIcon,
   CrownIcon,
+  HandCoinsIcon,
   LogOutIcon,
   SettingsIcon,
   TicketCheckIcon,
@@ -68,7 +69,13 @@ export const UserMenu = async () => {
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator className="m-0" />
-
+        <DropdownMenuItem className="cursor-pointer rounded-none" asChild>
+          <Link href="/billing">
+            <HandCoinsIcon className="size-4 mr-3" />
+            <span className="font-medium">Billing</span>
+          </Link>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator className="m-0" />
         <LogoutLink>
           <DropdownMenuItem className="cursor-pointer rounded-none">
             <LogOutIcon className="size-4 mr-3 text-red-500" />

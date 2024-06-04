@@ -53,6 +53,8 @@ export const MostRecent = async () => {
 };
 
 const ProductCard = ({ product }: { product: Product }) => {
+  if (!product) return null;
+
   return (
     <Link
       href={`/product/${product.id}`}
