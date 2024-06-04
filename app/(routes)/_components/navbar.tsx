@@ -47,10 +47,10 @@ export const Navbar = async () => {
           </div>
         ) : (
           <div className="flex items-center gap-x-2">
-            <LoginLink>
+            <LoginLink className="hidden lg:block">
               <Button size="sm">Login</Button>
             </LoginLink>
-            <RegisterLink>
+            <RegisterLink className="hidden lg:block">
               <Button size="sm" variant="outline">
                 Register
               </Button>

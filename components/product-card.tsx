@@ -79,6 +79,7 @@ export const ProductCard = ({ product, timeStamps, isPurchased }: Props) => {
         </div>
       )}
       {isPurchased ? (
+        // TODO: action to send email with current product zip file
         <Button>Send email with product</Button>
       ) : (
         <Link href={`/product/${id}`}>
