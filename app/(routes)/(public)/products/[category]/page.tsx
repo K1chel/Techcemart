@@ -1,4 +1,4 @@
-import { CategoryType } from "@prisma/client";
+import { CategoryType, Product } from "@prisma/client";
 import { unstable_noStore as noStore } from "next/cache";
 
 import { MaxWidthWrapper } from "@/components/max-width-wrapper";
@@ -28,15 +28,13 @@ const ProductsCategoryPage = async ({ params: { category } }: Props) => {
     });
   }
 
-  if (!true) return <ProductsCategoryLoader />;
-
   return (
     <div className="w-full h-full py-12">
       <MaxWidthWrapper className="space-y-10">
         <ProductCategorySelector category={category} />
         {!!data.length ? (
           <ProductsCardWrapper>
-            {data.map((product) => (
+            {data.map((product: Product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </ProductsCardWrapper>

@@ -25,17 +25,21 @@ export const ProductCard = ({ product, timeStamps, isPurchased }: Props) => {
       {images.length > 1 ? (
         <Carousel>
           <CarouselContent>
-            {images.map((image, idx) => (
-              <CarouselItem key={idx}>
+            {images.map((img, index) => (
+              <CarouselItem
+                key={index}
+                className="relative xl:h-[280px] h-[250px] w-full"
+              >
                 <Link
                   href={`/product/${id}`}
                   className="relative xl:h-[280px] h-[250px]"
                 >
                   <Image
                     alt="Product image"
-                    src={image}
-                    fill
-                    className="object-cover w-full rounded-lg bg-slate-200"
+                    src={img}
+                    width={280}
+                    height={280}
+                    className="object-cover w-full rounded-lg bg-slate-200 p-1 border border-slate-900/10 bg-slate-900/5 h-full"
                   />
                 </Link>
               </CarouselItem>
@@ -53,7 +57,7 @@ export const ProductCard = ({ product, timeStamps, isPurchased }: Props) => {
             alt="Product image"
             src={images[0]}
             fill
-            className="object-cover w-full rounded-lg bg-slate-200"
+            className="object-cover w-full rounded-lg bg-slate-200 p-1 border border-slate-900/10 bg-slate-900/5"
           />
         </Link>
       )}
