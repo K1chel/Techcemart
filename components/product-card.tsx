@@ -15,9 +15,15 @@ type Props = {
   product: ProductType;
   timeStamps?: Date;
   isPurchased?: boolean;
+  showSellCount?: boolean;
 };
 
-export const ProductCard = ({ product, timeStamps, isPurchased }: Props) => {
+export const ProductCard = ({
+  product,
+  timeStamps,
+  isPurchased,
+  showSellCount,
+}: Props) => {
   const { images, name, price, summary, id } = product;
 
   return (
@@ -76,6 +82,12 @@ export const ProductCard = ({ product, timeStamps, isPurchased }: Props) => {
       <span className="line-clamp-3 text-xs md:text-sm text-slate-600 tracking-wide">
         {summary}
       </span>
+      {showSellCount && (
+        <div className="border-t pt-1.5 flex items-center justify-between text-xs lg:text-sm text-muted-foreground font-medium px-1.5">
+          <span>Sell count:</span>
+          <span>{product.sellCount}</span>
+        </div>
+      )}
       {timeStamps && (
         <div className="flex items-center justify-between text-sm text-muted-foreground border-t pt-1.5">
           <span>Purchased on</span>

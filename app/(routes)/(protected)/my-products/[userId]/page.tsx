@@ -64,7 +64,7 @@ const MyProductsPage = async ({ params }: Props) => {
         <hr />
         <ProductsCardWrapper>
           {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard key={product.id} product={product} showSellCount />
           ))}
         </ProductsCardWrapper>
       </MaxWidthWrapper>

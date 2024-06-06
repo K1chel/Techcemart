@@ -38,5 +38,16 @@ export async function GET(
     },
   });
 
+  await db.product.update({
+    where: {
+      id: productToUpdate.id,
+    },
+    data: {
+      sellCount: {
+        increment: 1,
+      },
+    },
+  });
+
   return redirect("/payment/success");
 }
