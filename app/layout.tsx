@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from 'next/script';
 import { Inter } from "next/font/google";
 import { Toaster } from "sonner";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
@@ -39,6 +40,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
+        <Script 
+          strategy="afterInteractive"
+          data-website-id="679ba6595be335c7ce44f06d"
+          data-domain="techcemart.com"
+          src="https://datafa.st/js/script.js"
+        />
         <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
         <Analytics />
         {children}
